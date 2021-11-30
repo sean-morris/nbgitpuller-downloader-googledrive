@@ -28,7 +28,6 @@ def handle_files(helper_args, query_line_args):
     response = loop.run_until_complete(get_response_from_drive(DOWNLOAD_URL, get_id(repo)))
     ext = determine_file_extension_from_response(response)
     helper_args["download_q"].put_nowait(f"Archive is: {ext}\n")
-
     helper_args["extension"] = ext
     helper_args["download_func"] = download_archive_for_google
 
