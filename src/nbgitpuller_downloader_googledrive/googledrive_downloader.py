@@ -66,13 +66,14 @@ def get_confirm_token(session, url):
     return None
 
 
-async def download_archive_for_google(repo, temp_download_file):
+async def download_archive_for_google(repo=None, temp_download_file=None):
     """
     This requests the file from the repo(url) given and saves it to the disk. This is executed
     in plugin_helper.py and note that the parameters to this function are the same as the standard
-    parameters used by the standard download_archive function in plugin_helper.
+    parameters used by the standard download_archive function in plugin_helper. You may also note that I let
+    plugin_helper handle passing the temp_download_file to the function
 
-    :param map repo: the name of the repo
+    :param str repo: the name of the repo
     :param str temp_download_file: the path to save the requested file to
     """
     yield "Downloading archive ...\n"
